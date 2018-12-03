@@ -1,7 +1,9 @@
 package br.unipe.jacademy.resources;
 
 import br.unipe.jacademy.entities.AlunoEntity;
+import br.unipe.jacademy.entities.EnderecoEntity;
 import br.unipe.jacademy.services.AlunoService;
+import br.unipe.jacademy.services.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class AlunoResource extends GenericResource<AlunoService, AlunoEntity> {
 
     @Autowired
     private AlunoService service;
+
+    @Autowired
+    private EnderecoService enderecoService;
 
     @GetMapping("/listar")
     public ModelAndView inicio() {
@@ -52,4 +57,25 @@ public class AlunoResource extends GenericResource<AlunoService, AlunoEntity> {
     private Map novo(){
         return model("aluno", new AlunoEntity());
     }
+
+    @GetMapping("/listar/endereco/{id}")
+    public ModelAndView listarEndereco(@PathVariable("id") Long id) {
+        return modelAndView("aluno/relacionar1", "aluno", service.getPorId(id).get(), "enderecos", enderecoService.getEnderecoId(id));
+    }
+
+    @PostMapping("/cadastrar/endereco/{id}")
+    public ModelAndView cadastarEndereco(EnderecoEntity endereco, @PathVariable("id") Long id) {
+        AlunoEntity aluno = service.getPorId(id).get();
+        endereco.setPessoa(aluno);
+        enderecoService.salvar(endereco);
+        return modelAndView("aluno/relacionar1", "aluno", aluno, "enderecos", enderecoService.getEnderecoId(id));
+    }
+
+    @GetMapping("/excluir/endereco/{id}")
+    public ModelAndView excluirTurma(@PathVariable("id") Long id) {
+        AlunoEntity aluno = (AlunoEntity) enderecoService.getPorId(id).get().getPessoa();
+        enderecoService.excluirPorId(id);
+        return modelAndView("sala/relacionar1", "sala", aluno, "turmas", enderecoService.getEnderecoId(aluno.getId()));
+    }
+
 }
