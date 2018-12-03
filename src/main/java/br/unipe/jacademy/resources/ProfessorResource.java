@@ -35,7 +35,7 @@ public class ProfessorResource extends GenericResource<ProfessorService, Profess
     public ModelAndView editar(@PathVariable("idprofessor") Long idprofessor) {
         Optional<ProfessorEntity> optional = service.getPorId(idprofessor);
         ModelAndView modelAndView = view("professor/editar", "professor", optional.get());
-        return modelAndView.addAllObjects(model("professors", service.getAll()));
+        return modelAndView.addAllObjects(model("professores", service.getAll()));
     }
 
     @GetMapping("/excluir/{idprofessor}")
