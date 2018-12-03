@@ -16,7 +16,7 @@ public class TurmaService extends GenericService<TurmaEntity, ITurmaRepository> 
         super(repository);
     }
     
-    public List<TurmaEntity> getTurmaPorSala(Long id){
+    public List<TurmaEntity> getTurmasPorSala(Long id){
     	return super.repository.findTurmaBySala(id);
     }
 }

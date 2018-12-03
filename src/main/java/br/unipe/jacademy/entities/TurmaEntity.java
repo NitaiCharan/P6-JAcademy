@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Turmas")
@@ -25,7 +26,9 @@ public class TurmaEntity extends GenericEntity {
     @ManyToOne
     private SalaEntity sala;
 
+    //@NotBlank(message = "Campo deve ser preenchido")
     private String nome;
+    //@NotBlank(message = "Campo deve ser preenchido")
     private Calendar horario;
 
 	public Set<AlunoEntity> getAlunos() {

@@ -13,6 +13,14 @@ lang="pt-br">
   media="screen,projection" />
 </head>
 <body>
+  <!--
+  <br>
+  <div th:each="mensagem = ${mensagens}">
+    <span th:text="${mensagem}"></span>
+  </div>
+  <br>
+-->
+
   <div class="row">
     <!--Campo para dados da sala-->
     <form action="/sala/cadastrar" th:object="${sala}" xmlns:th="http://www.thymeleaf.org"
