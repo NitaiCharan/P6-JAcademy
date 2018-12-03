@@ -16,7 +16,7 @@ public class AlunoService extends GenericService<AlunoEntity, IAlunoRepository> 
         super(repository);
     }
 
-    public List<SalaEntity> getPorNome(String nome){
+    public List<AlunoEntity> getPorNome(String nome){
         return repository.findAlunosByName(nome);
     }
 }
