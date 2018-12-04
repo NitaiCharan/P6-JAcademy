@@ -26,35 +26,29 @@
     <form action="/professor/cadastrar" class="col s12" id="formsalvar"
           th:object="${professor}" xmlns:th="http://www.thymeleaf.org">
         <div class="row">
-            <div class="input-field col s1"><label class="active" for="id">Id</label>
-                <input class="validate" id="id" name="id" readonly="readonly"
-                       th:field="*{id}"/></div>
-            <div class="input-field col s3"><label class="active" for="nome">Nome</label>
+            <div class="input-field col s6"><label class="active" for="nome">Nome</label>
                 <input class="validate" id="nome" name="nome" th:field="*{nome}"/>
             </div>
-            <div class="input-field col s4"><label class="active" for="sobrenome">Sobrenome</label>
+            <div class="input-field col s6"><label class="active" for="sobrenome">Sobrenome</label>
                 <input class="validate" id="sobrenome" name="sobrenome" th:field="*{sobrenome}"/>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s4"><label class="active" for="mae">Mãe</label>
+            <div class="input-field col s6"><label class="active" for="mae">Mãe</label>
                 <input class="validate" id="mae" name="mae" th:field="*{mae}"/>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s4"><label class="active" for="pai">Pai</label>
+            <div class="input-field col s6"><label class="active" for="pai">Pai</label>
                 <input class="validate" id="pai" name="pai" th:field="*{pai}"/>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s2"><label class="active" for="matricula">Matrícula</label>
+            <div class="input-field col s6"><label class="active" for="matricula">Matrícula</label>
                 <input class="validate" id="matricula" name="matricula" th:field="*{matricula}"/>
             </div>
-            <div class="row">
-                <div class="input-field col s3"><label class="active" for="email">E-Mail</label>
-                    <input class="validate" id="email" name="email" th:field="*{email}"/>
-                </div>
+            <div class="input-field col s6"><label class="active" for="email">E-Mail</label>
+                <input class="validate" id="email" name="email" th:field="*{email}"/>
             </div>
+        </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input class="waves-effect waves-light btn" type="submit" value="Salvar"/>
