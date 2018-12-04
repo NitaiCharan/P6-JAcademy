@@ -30,6 +30,12 @@
             <h4>Cadastrar Professor</h4>
         </div>
         <div class="row">
+            <div class="input-field col s6">
+                <label for="id" class="active">Id</label>
+                <input name="id" th:field="*{id}" readonly="readonly" id="id" class="validate" />
+            </div>
+        </div>
+        <div class="row">
             <div class="input-field col s6"><label class="active" for="nome">Nome</label>
                 <input class="validate" id="nome" name="nome" th:field="*{nome}"/>
             </div>
@@ -53,13 +59,13 @@
                 <input class="validate" id="email" name="email" th:field="*{email}"/>
             </div>
         </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input class="waves-effect waves-light btn" type="submit" value="Salvar"/>
-                </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input class="waves-effect waves-light btn" type="submit" value="Salvar"/>
             </div>
         </div>
-    </form>
+</div>
+</form>
 </div>
 <br/> <br/>
 
