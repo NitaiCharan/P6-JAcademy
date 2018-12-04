@@ -14,6 +14,9 @@
 <div class="row"> <!--Campo para dados do professor-->
     <form action="/professor/cadastrar" class="col s12" id="formsalvar" th:object="${professor}">
         <div class="row">
+            <h4>Editar Professor</h4>
+        </div>
+        <div class="row">
             <div class="input-field col s6"><label class="active" for="nome">Nome</label>
                 <input class="validate" id="nome" name="nome" th:field="*{nome}"/>
             </div>

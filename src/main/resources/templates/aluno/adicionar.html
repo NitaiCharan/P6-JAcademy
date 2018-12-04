@@ -26,6 +26,9 @@
     <form action="/aluno/cadastrar" class="col s12" id="formsalvar"
           th:object="${aluno}" xmlns:th="http://www.thymeleaf.org">
         <div class="row">
+            <h4>Cadastrar Aluno</h4>
+        </div>
+        <div class="row">
             <div class="input-field col s6"><label class="active" for="nome">Nome</label>
                 <input class="validate" id="nome" name="nome" th:field="*{nome}"/>
             </div>
