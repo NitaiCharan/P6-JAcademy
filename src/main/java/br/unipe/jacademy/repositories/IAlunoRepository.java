@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface IAlunoRepository extends IGenericRepository<AlunoEntity>{
 
-    @Query("select s from SalaEntity s where s.nome like %?1%")
-    List<SalaEntity> findAlunosByName(String nome);
+    @Query("select s from AlunoEntity s where s.nome like %?1%")
+    List<AlunoEntity> findAlunosByName(String nome);
 }

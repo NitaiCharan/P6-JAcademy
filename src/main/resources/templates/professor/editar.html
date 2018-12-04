@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>Professor - Editar</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link href="/css/materialize.min.css" media="screen,projection" rel="stylesheet" type="text/css">
+    <link href="/css/materialize.css" media="screen,projection" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="row"> <!--Campo para dados do professor-->
+    <form action="/professor/cadastrar" class="col s12" id="formsalvar" th:object="${professor}">
+        <div class="row">
+            <div class="input-field col s1"><label class="active" for="id">Id</label>
+                <input class="validate" id="id" name="id" readonly="readonly" th:field="*{id}">
+            </div>
+            <div class="input-field col s3"><label class="active" for="nome">Nome</label>
+                <input class="validate" id="nome" name="nome" th:field="*{nome}"></div>
+            <div class="input-field col s4"><label class="active" for="sobrenome">Sobrenome</label>
+                <input class="validate" id="sobrenome" name="sobrenome" th:field="*{sobrenome}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4"><label class="active" for="mae">Mãe</label>
+                <input class="validate" id="mae" name="mae" th:field="*{mae}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4"><label class="active" for="pai">Pai</label>
+                <input class="validate" id="pai" name="pai" th:field="*{pai}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2"><label class="active" for="matricula">Matrícula</label>
+                <input class="validate" id="matricula" name="matricula" th:field="*{matricula}"/>
+            </div>
+            <div class="row">
+                <div class="input-field col s3"><label class="active" for="email">E-Mail</label>
+                    <input class="validate" id="email" name="email" th:field="*{email}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input class="waves-effect waves-light btn" type="submit" value="Salvar">
+                    <button class="waves-effect waves-light btn" onclick="document.getElementById('formsalvar').reset();">Novo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<!--Campo para listar professores-->
+<table class="striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Mãe</th>
+        <th>Pai</th>
+        <th>Matrícula</th>
+        <th>E-mail</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="professor : ${professores}">
+        <td th:text=${professor.id}></td>
+        <td th:text=${professor.nome}></td>
+        <td th:text=${professor.sobrenome}></td>
+        <td th:text=${professor.mae}></td>
+        <td th:text=${professor.pai}></td>
+        <td th:text=${professor.matricula}></td>
+        <td th:text=${professor.email}></td>
+        <td><a th:href="@{/professor/editar/{idprofessor}(idprofessor=${professor.id})}">Editar</a></td>
+        <td><a th:href="@{/professor/excluir/{idprofessor}(idprofessor=${professor.id})}">Excluir</a></td>
+    </tr>
+    </tbody>
+</table>
+<!--JavaScript at end of body for optimized loading-->
+<script src="/js/materialize.min.js" type="text/javascript"></script>
+<script src="/js/materialize.js" type="text/javascript"></script>
+</body>
+</html>
