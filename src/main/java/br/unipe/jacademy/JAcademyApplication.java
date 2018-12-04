@@ -7,14 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.unipe.jacademy.entities.SalaEntity;
 import br.unipe.jacademy.repositories.ISalaRepository;
-import br.unipe.jacademy.repositories.ITurmaRepository;
 
 @SpringBootApplication
 public class JAcademyApplication implements CommandLineRunner {
     @Autowired
     private ISalaRepository salaRepositorory;
-    @Autowired
-    private ITurmaRepository turmaRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(JAcademyApplication.class, args);
@@ -22,8 +19,6 @@ public class JAcademyApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-
         int letra = 'A';
 
         for (int i = 0; i != 10; i++) {
