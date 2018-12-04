@@ -20,4 +20,9 @@ public class IndexController {
     public String home() {
     	return "home";
 	}
+    
+    @GetMapping("/403")
+    public String restrito() {
+    	return "403";
+    }
 }
