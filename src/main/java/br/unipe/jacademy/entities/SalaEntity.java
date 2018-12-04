@@ -38,4 +38,8 @@ public class SalaEntity extends GenericEntity {
     public void setDisponibilidade(int disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
+    
+    public void excluirTurma(TurmaEntity turma) {
+    	turmas.remove(turma);
+    }
 }

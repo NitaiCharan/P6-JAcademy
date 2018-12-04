@@ -25,6 +25,10 @@ public abstract class GenericService<Entity extends GenericEntity, Repository ex
         return repository.save(entity);
     }
 
+    public Entity atualizar(Entity entity) {
+        return repository.save(entity);
+    }
+
 
     public void excluirPorId(Long id){
         repository.deleteById(id);

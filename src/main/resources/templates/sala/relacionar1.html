@@ -52,7 +52,6 @@ lang="pt-br">
       <tr th:each="turma : ${turmas}" xmlns:th="http://www.thymeleaf.org">
         <td th:text="${turma.id}"><br /></td>
         <td th:text="${turma.nome}"><br /></td>
-        <td><a th:href="@{/sala/editar/turma/{idturma}(idturma=${turma.id})}">Editar</a></td>
         <td><a th:href="@{/sala/excluir/turma/{idturma}(idturma=${turma.id})}">Excluir</a></td>
       </tr>
     </tbody>

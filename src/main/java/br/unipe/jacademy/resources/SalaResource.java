@@ -77,8 +77,11 @@ public class SalaResource extends GenericResource<SalaService, SalaEntity> {
 
 	@GetMapping("/excluir/turma/{id}")
 	public ModelAndView excluirTurma(@PathVariable("id") Long id) {
-		SalaEntity sala = turmaService.getPorId(id).get().getSala();
+		TurmaEntity turma = turmaService.getPorId(id).get();
+		SalaEntity sala = turma.getSala();
+		sala.excluirTurma(turma);
 		turmaService.excluirPorId(id);
+		service.salvar(sala);
 		return modelAndView("sala/relacionar1", "sala", sala, "turmas", turmaService.getTurmasPorSala(sala.getId()));
 	}
 }
