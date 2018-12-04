@@ -1,14 +1,13 @@
 package br.unipe.jacademy;
 
-import br.unipe.jacademy.entities.SalaEntity;
-import br.unipe.jacademy.repositories.ISalaRepository;
-import br.unipe.jacademy.repositories.ITurmaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.text.ParseException;
+import br.unipe.jacademy.entities.SalaEntity;
+import br.unipe.jacademy.repositories.ISalaRepository;
+import br.unipe.jacademy.repositories.ITurmaRepository;
 
 @SpringBootApplication
 public class JAcademyApplication implements CommandLineRunner {
@@ -46,5 +45,4 @@ public class JAcademyApplication implements CommandLineRunner {
         }
         */
     }
-
 }
