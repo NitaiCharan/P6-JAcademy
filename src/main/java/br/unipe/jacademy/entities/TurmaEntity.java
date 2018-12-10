@@ -7,11 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Turmas")
-public class TurmaEntity extends GenericEntity {
+public class TurmaEntity extends GenericEntity implements Observador {
     private static final long serialVersionUID = 8L;
 
     @ManyToMany
@@ -67,6 +66,15 @@ public class TurmaEntity extends GenericEntity {
 	public void setHorario(Calendar horario) {
 		this.horario = horario;
 	}
-
-    
+	@Override
+	public void update(Observado Observado, Object arg) {
+		System.out.println("============================================================================================");
+		System.out.println(toString() + " ação para:  " + arg);
+		System.out.println("============================================================================================");
+		
+	}
+	@Override
+	public String toString() {
+		return "Turma [nome=" + nome + ", horario=" + horario + "]";
+	}
 }

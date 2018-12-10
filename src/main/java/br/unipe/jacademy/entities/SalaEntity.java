@@ -6,17 +6,15 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Salas")
-public class SalaEntity extends GenericEntity {
+public class SalaEntity extends GenericEntity implements Observado {
     private static final long serialVersionUID = 7L;
 
     @OneToMany(mappedBy = "sala", cascade=CascadeType.PERSIST)
     private Set<TurmaEntity> turmas;
-
+    
     //@NotBlank(message = "Campo deve ser preenchido")
     private String nome;
 
@@ -32,14 +30,38 @@ public class SalaEntity extends GenericEntity {
     }
 
     public int getDisponibilidade() {
-        return disponibilidade;
-    }
+		return disponibilidade;
+	}
 
-    public void setDisponibilidade(int disponibilidade) {
-        this.disponibilidade = disponibilidade;
-    }
-    
-    public void excluirTurma(TurmaEntity turma) {
+	public void setDisponibilidade(int disponibilidade) {
+		this.disponibilidade = disponibilidade;
+	}
+
+	public void excluirTurma(TurmaEntity turma) {
     	turmas.remove(turma);
     }
+    
+    public void addTurma(TurmaEntity turma) {
+    	notificar();
+    	turmas.add(turma); 
+	}
+	@Override
+	public void addObservador() {
+	}
+
+	@Override
+	public void excluirObservador() {
+	}
+
+	@Override
+	public void notificar() {
+		turmas.forEach(turma -> {
+			turma.update(this,toString()+" reservado para "+turma.toString());
+		});
+	}
+
+	@Override
+	public String toString() {
+		return "SalaEntity [nome=" + nome + ", disponibilidade=" + disponibilidade + "]";
+	}
 }

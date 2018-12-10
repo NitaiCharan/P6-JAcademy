@@ -10,4 +10,18 @@ public class AlunoEntity extends PessoaEntity {
 
     @ManyToMany
     private Set<TurmaEntity> turmas;
+    
+    @Transient
+    private PessoaEntity pessoaEntity;
+
+	public AlunoEntity() {
+	}
+	public AlunoEntity(PessoaEntity pessoaEntity) {
+		this.pessoaEntity = pessoaEntity;
+	}
+
+	public void printPrivilegio() {
+		super.printPrivilegio();
+		System.out.println(this.privilegio);
+	}
 }

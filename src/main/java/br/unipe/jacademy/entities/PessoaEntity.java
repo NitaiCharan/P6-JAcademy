@@ -1,13 +1,9 @@
 package br.unipe.jacademy.entities;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "Pessoas")
@@ -23,6 +19,10 @@ public abstract class PessoaEntity extends GenericEntity {
     private String pai;
     private String matricula;
     private String email;
+    
+    @Transient
+    protected String privilegio;
+
 	public EnderecoEntity getEndereco() {
 		return endereco;
 	}
@@ -64,5 +64,8 @@ public abstract class PessoaEntity extends GenericEntity {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public void printPrivilegio() {
+		System.out.println(privilegio);
 	}
 }
